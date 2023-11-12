@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Descuento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculadora de Descuento</h2>
+
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad">
+
+  <br>
+
+  <label for="producto">Producto:</label>
+  <select id="producto">
+    <option value="tv">TV - Q3,200</option>
+    <option value="refrigeradora">Refrigeradora - Q2,300</option>
+    <option value="cama">Cama - Q4,500</option>
+  </select>
+
+  <br>
+
+  <button onclick="calcularDescuento()">Calcular Descuento</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularDescuento() {
+      // Obtener el valor de la edad y el producto seleccionado
+      var edad = document.getElementById("edad").value;
+      var producto = document.getElementById("producto").value;
+
+      // Verificar si se ingresaron valores válidos
+      if (isNaN(edad) || edad <= 0) {
+        alert("Por favor, ingrese una edad válida.");
+        return;
+      }
+
+      // Definir los precios de los productos
+      var precioTV = 3200;
+      var precioRefrigeradora = 2300;
+      var precioCama = 4500;
+
+      // Calcular el descuento según la edad
+      var descuento = 0;
+      if (edad > 50) {
+        descuento = 0.10; // 10% de descuento para mayores de 50 años
+      } else if (edad >= 35 && edad <= 49) {
+        descuento = 0.05; // 5% de descuento para personas de 35 a 49 años
+      }
+
+      // Calcular el precio final con descuento
+      var precioFinal = 0;
+      switch (producto) {
+        case "tv":
+          precioFinal = precioTV - (precioTV * descuento);
+          break;
+        case "refrigeradora":
+          precioFinal = precioRefrigeradora - (precioRefrigeradora * descuento);
+          break;
+        case "cama":
+          precioFinal = precioCama - (precioCama * descuento);
+          break;
+        default:
+          break;
+      }
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = "El precio final con descuento es: Q" + precioFinal.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>

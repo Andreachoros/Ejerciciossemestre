@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipo de Cambio Quetzales a Dolares</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculadora de Tipo de Cambio</h2>
+
+  <label for="quetzales">Ingrese la cantidad en Quetzales: </label>
+  <input type="number" id="quetzales">
+
+  <button onclick="calcularTipoCambio()">Calcular Tipo de Cambio</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularTipoCambio() {
+      // Obtener el valor ingresado en Quetzales
+      var quetzales = document.getElementById("quetzales").value;
+
+      // Verificar si se ingresó un valor válido
+      if (isNaN(quetzales) || quetzales <= 0) {
+        alert("Por favor, ingrese una cantidad válida en Quetzales.");
+        return;
+      }
+
+      // Tipo de cambio (puedes cambiar este valor según el tipo de cambio actual)
+      var tipoCambio = 0.13;
+
+      // Calcular el equivalente en Dólares
+      var dolares = quetzales * tipoCambio;
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = quetzales + " Q equivale a " + dolares.toFixed(2) + " $";
+    }
+  </script>
+
+</body>
+</html>

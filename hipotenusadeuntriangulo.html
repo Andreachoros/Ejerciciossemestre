@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Hipotenusa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculadora de Hipotenusa</h2>
+
+  <label for="ladoA">Longitud del lado A:</label>
+  <input type="number" id="ladoA">
+
+  <br>
+
+  <label for="ladoB">Longitud del lado B:</label>
+  <input type="number" id="ladoB">
+
+  <br>
+
+  <button onclick="calcularHipotenusa()">Calcular Hipotenusa</button>
+
+  <p id="resultado"></p>
+
+  <script>
+    function calcularHipotenusa() {
+      // Obtener los valores de los lados A y B
+      var ladoA = document.getElementById("ladoA").value;
+      var ladoB = document.getElementById("ladoB").value;
+
+      // Verificar si se ingresaron valores válidos
+      if (isNaN(ladoA) || isNaN(ladoB) || ladoA <= 0 || ladoB <= 0) {
+        alert("Por favor, ingrese valores válidos para los lados A y B.");
+        return;
+      }
+
+      // Calcular la hipotenusa utilizando el teorema de Pitágoras
+      var hipotenusa = Math.sqrt(Math.pow(ladoA, 2) + Math.pow(ladoB, 2));
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = "La hipotenusa del triángulo es: " + hipotenusa.toFixed(2);
+    }
+  </script>
+
+</body>
+</html>

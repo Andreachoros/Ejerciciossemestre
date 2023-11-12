@@ -1,0 +1,75 @@
+<html>
+<head>
+     <title> Formulario Andrea </title>
+     <link href="styleformulario.css" rel="stylesheet" type="text/css">
+<script src="javascriptr.js"></script>   <!-- enlace al archivo javascript -->
+</head>
+<body> 
+
+<form name="form1" action="" id="form1" >  <!-- Creando un formulario -->
+
+<div id="divcontenedor" class="divA" >   <!-- Las etiquedas div sirve para crear secciones o agrupar contenidos. -->
+          <h1> DISFRUTE SU VIAJE </h1> 
+        </div>
+
+<b><br>NOMBRE DEL PASAJERO :  </b>
+        <P> <div class="divinput">
+          <!-- campo tipo texto, se usa PLACEHOLDER para mostrar un texto dentro del campo,  AUTOFOCUS se usa para que de forma automatica se posicione el curso en ese campo -->
+        <input type="text" placeholder="escribe tu nombre" id="pasajero" autofocus >   
+        </div>
+
+<p><b>UBICACION SALIDA:</b>
+
+        <select size="1" name="salida" class="select" id="salida">    <!-- Campo tipo Select -->
+            <option value="" selected>SELECCIONE UBICACION DE SALIDA</option>    <!-- Usando la etiqueda OPTION se van agregando elementos a la lista para que sean desplegados -->
+            <option value="PUERTO BARRIOS" >PUERTO BARRIOS</option>
+            <option value="MORALES">MORALES</option>
+            <option <option value="ZACAPA">ZACAPA</option>
+            <option value="GUATEMALA">GUATEMALA</option>
+        </select>
+
+<P> <b>UBICACION DESTINO :</b> </P> 
+        <P> <div class="divinput">
+          <select size="4" name="llegada" id="llegada" multiple>  <!-- Campo tipo Select con opciones multiples desplegadas -->
+             <option>PUERTO BARRIOS</option>
+<option>MORALES</option>
+             <option>ZACAPA</option>
+             <option selected>GUATEMALA</option>
+          </select>
+          </P>
+         </div>
+
+<BR><BR><BR>
+       <p><b>TRANSPORTE: </b> </p> 
+        <div class="divinput2">
+
+          <!-- Campos tipo RADIO sirve para que el usuario solo seleccione un elemento de un grupo de opciones -->
+<input type="radio" value="AVION" name="medio" id="medio" checked>AVION 
+          <input type="radio" value="TREN" name="medio" id="medio2">TREN 
+          <input type="radio" value="AUTOBUS" name="medio" id="medio3">AUTOBUS
+
+<BR><BR><BR>
+            <p><b>FECHA VIAJE: </b> </p> 
+            <div class="divinput2">
+             <!-- Campos tipo DATE permite seleccionar fechas por medio de un calendario, con el atributo VALUE se le indica el formato a la fecha segun sea necesario por ejemplo dd-mm-yy -->
+<input type="date" id="myDate" name="fecha" value="07-10-2023" >  
+          </div>
+          <BR><BR><BR>
+          <p>
+
+<div class="divinput3">
+
+            <input type="reset" value="CANCELAR" class="submit" >  <!-- tipo RESET sirve para limpiar la pantalla -->
+
+<!-- input BUTTON es un boton en el cual podemos añadir eventos según lo necesitemos, en este ejemplo usamos el evento ONCLICK y que al 
+            momento de dar clic en este llame a la funcion que necesitemos y muestre el resultado en un ALERT  -->
+            <input type="button" value="GUARDAR" class="submit" name="VER" onclick="alert( viaje(1,2) );">
+
+</div>
+</p>
+</p>
+
+</form>
+
+</body>
+</html>
